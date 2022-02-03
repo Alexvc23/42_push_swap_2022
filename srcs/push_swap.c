@@ -6,11 +6,11 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/02 14:03:49 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:35:37 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../includes/push_swap.h"
+#include"push_swap.h"
 
 unsigned int ft_check_num(int args, char *argv[])
 {
@@ -35,6 +35,6 @@ unsigned int ft_check_num(int args, char *argv[])
 int main(int args, char *argv[])
 {
     if (!ft_check_num(args, argv))
-        write(3, INTWARNIN, ft_strlen(INTWARNIN));
+       write(2 , INTWARNIN, ft_strlen(INTWARNIN));
     return (0);
 }

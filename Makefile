@@ -9,8 +9,8 @@ V_CC := @echo "Building $@..."; $(CC)
 AT := @
 CC := gcc
 EXEC	:= push_swap  
-FLAGS	:= -Wall -Werror -Wextra
 DIR_SRCS := srcs
+FLAGS	:= -g -Wall -Werror -Wextra
 DIR_OBJS := objs
 DIR_INCS := includes
 DIR_LIBFT:= libft
@@ -27,10 +27,10 @@ INCLUDES := push_swap.h
 all: $(EXEC) 
 
 $(EXEC): $(OBJS) $(LIBFT)
-	@echo creating executable	
+#	echo creating executable	
 	$(CC) $(FLAGS) -I $(DIR_INCS) $^ -o $@
 
-$(OBJS): $(SRCS) $(INCS) Makefile | $(DIR_OBJS)
+$(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c $(INCS) Makefile | $(DIR_OBJS)
 	$(V_CC) $(FLAGS) -I $(DIR_INCS) -c $< -o $@
 
 $(DIR_OBJS):
@@ -42,9 +42,11 @@ clean:
 	@echo Removing object files
 	$(AT)-rm -rf $(DIR_OBJS)	 
 
+	$(MAKE) -C $(DIR_LIBFT) clean
 fclean: clean
 	@echo Removing application
-	$(AT)-rm -f $(LIBRARY)
+	$(AT)-rm -f $(EXEC)
+	$(MAKE) -C $(DIR_LIBFT) fclean
 
 re: fclean all	
 
