@@ -74,7 +74,7 @@ INCLUDES := libft.h
 
 all: $(LIBRARY) 
 
-$(LIBRARY): $(OBJS)
+$(LIBRARY): $(OBJS) $(SRCS)
 	@echo creating library	
 	$(AT)-ar -rcs $(LIBRARY) $(OBJS)
 	$(AT)-ranlib $(LIBRARY)
