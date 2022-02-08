@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 09:56:39 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/08 11:08:40 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:25:44 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-	struct s_list	*previous;
 
 }					t_list;
 
