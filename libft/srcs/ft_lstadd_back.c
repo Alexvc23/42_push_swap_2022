@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvalenci <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 09:28:59 by jvalenci          #+#    #+#             */
-/*   Updated: 2021/11/23 11:29:24 by jvalenci         ###   ########lyon.fr   */
+/*   Updated: 2022/02/08 11:10:18 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	}
 	ptr = ft_lstlast(*alst);
 	ptr->next = new;
+	ptr->next->previous = ptr;
 }
 /*
    int main()

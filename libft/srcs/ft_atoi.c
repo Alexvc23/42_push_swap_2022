@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:04:52 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/05 18:15:30 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/08 09:32:49 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (!ft_int_overflow(num, 10, 'm'))
-			return ;
+			return (0);
 		num *= 10;
 		if (!ft_int_overflow(num, ((int)str[i] - '0'), 'a'))
-			return ;
+			return (0);
 		num += ((int)str[i++] - '0');
 	}
 	return (num * mul);

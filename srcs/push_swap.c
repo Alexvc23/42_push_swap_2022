@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/05 21:39:02 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:16:47 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,27 +90,23 @@ int ft_check_dup(int args, int *num)
 int main(int args, char *argv[])
 {
     int *num;
+    t_list *stack_a;
+    t_list *stack_b;
 
+    stack_a = NULL;
+    stack_b = NULL;
     num = malloc(sizeof(int) * (args - 1));
     if (!num)
-    {
-        ft_putstr_fd("Error\n", 2);
-        return (0);
-    }
+        return (write(2, "Error\n", 6));
     if (args >= 3)
     {
         if (!ft_check_isdigit(args, argv))
-        {
-            ft_putstr_fd("Error\n", 2);
-            return (0);
-        }
+            return (write(2, "Error\n", 6));
         if (!ft_check_numsize(args, argv, num))
             return (0);
         if (!ft_check_dup(args, num))
-        {
-            ft_putstr_fd("Error\n", 2);
-            return (0);
-        }
+            return (write(2, "Error\n", 6));
+        set_up(args, num, stack_a , stack_b);
     }
     free(num);
     return (0);

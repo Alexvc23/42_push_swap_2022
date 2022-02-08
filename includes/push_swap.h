@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 16:19:46 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/04 16:07:36 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:12:32 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
  */
 
 unsigned int ft_check_num(int args, char *argv[]);
+int set_up(int args, int *num, t_list *stack_a , t_list *stack_b);
 
 #endif
