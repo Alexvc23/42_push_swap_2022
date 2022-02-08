@@ -18,7 +18,7 @@ SRCS = $(addprefix $(DIR_SRCS)/,$(C_FILES))
 OBJS = $(addprefix $(DIR_OBJS)/,$(O_FILES))
 INCS = $(addprefix $(DIR_INCS)/,$(INCLUDES))
 
-C_FILES	:=	push_swap.c set_up.c
+C_FILES	:=	push_swap.c set_up.c s_operations.c
 O_FILES := $(C_FILES:.c=.o)
 LIBFT := $(DIR_LIBFT)/libft.a
 INCLUDES := push_swap.h

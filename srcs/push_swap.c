@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/08 13:16:47 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:37:30 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int main(int args, char *argv[])
             return (0);
         if (!ft_check_dup(args, num))
             return (write(2, "Error\n", 6));
-        set_up(args, num, stack_a , stack_b);
+        set_up(args, num, &stack_a , &stack_b);
     }
     free(num);
     return (0);
