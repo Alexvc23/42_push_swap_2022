@@ -67,11 +67,24 @@ C_BONUS = \
 	  ft_lstclear.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
-	  ft_lstprint.c
+	  ft_lstprint.c\
+	  ft_check_prev.c
 
 INCLUDES := libft.h
 
-
+ERASE	=	\033[2K\r
+GREY	=	\033[30m
+RED		=	\033[31m
+GREEN	=	\033[32m
+YELLOW	=	\033[33m
+BLUE	=	\033[34m
+PINK	=	\033[35m
+CYAN	=	\033[36m
+WHITE	=	\033[37m
+BOLD	=	\033[1m
+UNDER	=	\033[4m
+SUR		=	\033[7m
+END		=	\033[0m
 
 all: $(LIBRARY) 
 
@@ -79,9 +92,11 @@ $(LIBRARY): $(OBJS) $(SRCS)
 	@echo creating library	
 	$(AT)-ar -rcs $(LIBRARY) $(OBJS)
 	$(AT)-ranlib $(LIBRARY)
+	@printf "$(ERASE)$(ERASE)$(BLUE)> Creating:$(BOLD)$(CYAN) $@ $(END)\n"
 
 $(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c $(INCS) Makefile $(DIR_OBJS)
-	$(CC) $(FLAGS) -I $(DIR_INCS) -c $< -o $@
+	$(AT) $(CC) $(FLAGS) -I $(DIR_INCS) -c $< -o $@
+	@printf "$(ERASE)$(ERASE)$(BLUE)> Creating: $(RED) $@ $(END)\n"
 
 $(DIR_OBJS):
 	$(AT)-mkdir -p $@ 
@@ -92,7 +107,6 @@ clean:
 
 fclean: clean
 	@echo Removing application
-
 	$(AT)-rm -f $(LIBRARY)
 re: fclean all	
 

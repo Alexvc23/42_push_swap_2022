@@ -14,39 +14,57 @@ FLAGS	:= -g -Wall -Werror -Wextra
 DIR_OBJS := objs
 DIR_INCS := includes
 DIR_LIBFT:= libft
+
 SRCS = $(addprefix $(DIR_SRCS)/,$(C_FILES))
 OBJS = $(addprefix $(DIR_OBJS)/,$(O_FILES))
 INCS = $(addprefix $(DIR_INCS)/,$(INCLUDES))
 
-C_FILES	:=	push_swap.c set_up.c s_operations.c
+C_FILES	:=	push_swap.c issort.c set_up.c r_operations.c\
+s_operations.c rr_operations.c p_operations.c\
+
 O_FILES := $(C_FILES:.c=.o)
 LIBFT := $(DIR_LIBFT)/libft.a
 INCLUDES := push_swap.h
 
+ERASE	=	\033[2K\r
+GREY	=	\033[30m
+RED		=	\033[31m
+GREEN	=	\033[32m
+YELLOW	=	\033[33m
+BLUE	=	\033[34m
+PINK	=	\033[35m
+CYAN	=	\033[36m
+WHITE	=	\033[37m
+BOLD	=	\033[1m
+UNDER	=	\033[4m
+SUR		=	\033[7m
+END		=	\033[0m
 
 all: $(EXEC) 
 
-$(EXEC): $(OBJS) $(LIBFT)
+$(EXEC): $(LIBFT) $(OBJS)
 #	echo creating executable	
-	$(CC) $(FLAGS) -I $(DIR_INCS) $^ -o $@
+	$(AT) $(CC) $(FLAGS) -I $(DIR_INCS) $(OBJS) $< -o $@
+	@printf "$(ERASE)$(ERASE)$(BLUE)> Creating:$(BOLD)$(CYAN) $@ $(END)\n"
 
 $(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c $(INCS) Makefile | $(DIR_OBJS)
-	$(V_CC) $(FLAGS) -I $(DIR_INCS) -c $< -o $@
+	$(AT) $(CC) $(FLAGS) -I $(DIR_INCS) -c $< -o $@
+	@printf "$(ERASE)$(ERASE)$(BLUE)> Creating:$(RED) $@ $(END)\n"
 
 $(DIR_OBJS):
-	mkdir -p $@ 
-$(LIBFT):
-	$(MAKE) -C $(DIR_LIBFT)
+	$(AT) mkdir -p $@ 
+$(LIBFT): libft/Makefile 
+	 $(AT) $(MAKE) -C $(DIR_LIBFT)
 	
 clean:
 	@echo Removing object files
+	$(AT) $(MAKE) -C $(DIR_LIBFT) clean
 	$(AT)-rm -rf $(DIR_OBJS)	 
-
-	$(MAKE) -C $(DIR_LIBFT) clean
 fclean: clean
 	@echo Removing application
 	$(AT)-rm -f $(EXEC)
-	$(MAKE) -C $(DIR_LIBFT) fclean
+	$(AT) $(MAKE) -C $(DIR_LIBFT) fclean
+	@printf "$(ERASE)$(ERASE)$(BLUE)> Deleted : $(RED)$(EXEC)$(END)\n"
 
 re: fclean all	
 

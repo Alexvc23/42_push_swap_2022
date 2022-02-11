@@ -6,11 +6,29 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/08 14:37:30 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/11 19:19:23 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void ft_print_int(int args, int *num)
+{
+    int i;
+
+    i = 0;
+    while (i <= (args - 2))
+        printf("%d ", num[i++]);
+    printf("\n");
+}
+void ft_free(int *a)
+{
+    if (a)
+    {
+        free(a);
+        a = NULL;
+    }
+}
 
 /* check if arguments provided are only numbers */
 unsigned int ft_check_isdigit(int args, char *argv[])
@@ -42,7 +60,7 @@ unsigned int ft_check_isdigit(int args, char *argv[])
     return (1);
 }
 
-/* we transforme characters to ingeters and we check int overflow */
+/* Transforme characters into ingeters and check int overflow */
 int ft_check_numsize(int args, char *argv[], int *num)
 {
     int i;
@@ -67,6 +85,7 @@ int ft_check_numsize(int args, char *argv[], int *num)
     return (1);
 }
 
+/* Checks if there are not any duplicates */
 int ft_check_dup(int args, int *num)
 {
     int i;
@@ -95,19 +114,20 @@ int main(int args, char *argv[])
 
     stack_a = NULL;
     stack_b = NULL;
-    num = malloc(sizeof(int) * (args - 1));
+    num = NULL;
+    num = malloc(((args - 1) * sizeof(int)));
     if (!num)
-        return (write(2, "Error\n", 6));
+        return (write(2, "Error\n", 7));
     if (args >= 3)
     {
         if (!ft_check_isdigit(args, argv))
-            return (write(2, "Error\n", 6));
+            return (write(2, "Error\n", 7));
         if (!ft_check_numsize(args, argv, num))
             return (0);
         if (!ft_check_dup(args, num))
-            return (write(2, "Error\n", 6));
-        set_up(args, num, &stack_a , &stack_b);
+            return (write(2, "Error\n", 7));
+        set_up(args, num, &stack_a, &stack_b);
     }
-    free(num);
+    ft_free(num);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 09:56:39 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/08 13:25:44 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/11 15:03:08 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	struct s_list	*previous;
 
 }					t_list;
 
@@ -74,6 +75,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del)(void*));
-void    ft_lstprint(t_list *header);
+void    ft_lstprint(t_list **header);
+void    ft_check_prev(t_list **alst);
 
 #endif

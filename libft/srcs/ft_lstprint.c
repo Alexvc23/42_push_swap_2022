@@ -6,18 +6,18 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:03:09 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/08 11:56:46 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/09 19:22:07 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void    ft_lstprint(t_list *header)
+void    ft_lstprint(t_list **header)
 {
    t_list *ptr; 
 
-   ptr = header;
-   if (!header)
+   ptr = *header;
+   if (!*header)
        return;
     while (ptr)
     {

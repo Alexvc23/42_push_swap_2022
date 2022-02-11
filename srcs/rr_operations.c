@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_up.c                                           :+:      :+:    :+:   */
+/*   rr_operations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 09:53:59 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/11 22:10:50 by jvalenci         ###   ########.fr       */
+/*   Created: 2022/02/10 17:58:47 by jvalenci          #+#    #+#             */
+/*   Updated: 2022/02/11 15:12:34 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int set_up(int args, int *num, t_list **stack_a , t_list **stack_b)
-{
-    int i;
+/* botton node pass to the top */
+void ft_rra(t_list **stack_a)
+ {
+     t_list *head;
+     t_list *last;
+     t_list *b_last;
 
-    (void)stack_b;    
-    i = 0;
-    while (i <= (args - 2))
-        ft_lstadd_back(stack_a, ft_lstnew(&num[i++]));
-    
-    return (0);
-}
+     head = *stack_a;
+     last = ft_lstlast(*stack_a);
+     last->next = head->next;
+     b_last = last->previous;
+     b_last->next = head;
+     last->previous = NULL;
+     head->next = NULL;
+     *stack_a = last;
+     ft_check_prev(stack_a);
+ }

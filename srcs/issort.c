@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_up.c                                           :+:      :+:    :+:   */
+/*   ft_issort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 09:53:59 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/11 22:10:50 by jvalenci         ###   ########.fr       */
+/*   Created: 2022/02/06 14:22:23 by jvalenci          #+#    #+#             */
+/*   Updated: 2022/02/06 14:33:08 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-int set_up(int args, int *num, t_list **stack_a , t_list **stack_b)
+int ft_issort(int args, int *num)
 {
     int i;
+    int len;
 
-    (void)stack_b;    
     i = 0;
-    while (i <= (args - 2))
-        ft_lstadd_back(stack_a, ft_lstnew(&num[i++]));
-    
-    return (0);
+    len = (args - 2);
+    while (i < len)
+    {
+        if (num[i] > num[i + 1])
+            return (0);
+        i++;
+    }
+    return (1);
 }
