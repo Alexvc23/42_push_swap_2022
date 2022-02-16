@@ -6,13 +6,14 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 16:03:10 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/11 15:05:45 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/15 15:19:00 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
 
-void ft_sa(t_list **stack_a)
+/* top node pass to botton */
+void ft_sa(t_list **stack_a, char letter)
 {
     t_list *new_head;
     t_list *second_node;
@@ -25,15 +26,19 @@ void ft_sa(t_list **stack_a)
     new_head->next = second_node;
    *stack_a = new_head; 
    ft_check_prev(stack_a);
+   if (letter == 'a')
+        ft_putstr_fd("sa\n", 1);
+    else
+        ft_putstr_fd("sb\n", 1);
 }
 
-void ft_sb(t_list **stack_b)
+void ft_sb(t_list **stack_b, char letter)
 {
-    ft_sa(stack_b);
+    ft_sa(stack_b, letter);
 }
 
 void ft_ss(t_list **stack_a, t_list **stack_b)
 {
-   ft_sa(stack_a); 
-   ft_sb(stack_b);
+   ft_sa(stack_a, 'a'); 
+   ft_sb(stack_b, 'b');
 }

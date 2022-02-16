@@ -6,21 +6,24 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/11 19:19:23 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/14 21:50:13 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_print_int(int args, int *num)
+/* print int array */
+int ft_print_int(int args, int *num)
 {
     int i;
 
     i = 0;
     while (i <= (args - 2))
-        printf("%d ", num[i++]);
+        printf("%d", num[i++]);
     printf("\n");
+    return (0);
 }
+/* free int array*/
 void ft_free(int *a)
 {
     if (a)
@@ -74,10 +77,7 @@ int ft_check_numsize(int args, char *argv[], int *num)
         if (num[iter] == 0)
         {
             if ((char)(num[iter] + '0') != argv[i][0])
-            {
-                ft_putstr_fd("Error\n", 2);
                 return (0);
-            }
         }
         i++;
         iter++;
@@ -123,7 +123,7 @@ int main(int args, char *argv[])
         if (!ft_check_isdigit(args, argv))
             return (write(2, "Error\n", 7));
         if (!ft_check_numsize(args, argv, num))
-            return (0);
+            return (write(2, "Error\n", 7));
         if (!ft_check_dup(args, num))
             return (write(2, "Error\n", 7));
         set_up(args, num, &stack_a, &stack_b);

@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:04:52 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/08 09:32:49 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/16 11:30:21 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int	ft_atoi(const char *str)
 		i++;
 	if (!ft_check_sign(&mul, &sym, &i, str))
 		return (0);
+	if (!ft_strncmp(str, "-2147483648", 11))
+		return (-2147483648);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		if (!ft_int_overflow(num, 10, 'm'))
@@ -108,8 +110,11 @@ int	ft_atoi(const char *str)
 	printf(("%d\n"), ft_atoi("-2147483"));
 	printf(("------------------------------\n"));
 	printf(("test7: "));
-	printf(("-2147483323423423\n"));
+	printf(("-2147483\n"));
 	printf(("function call: "));
-	printf(("%d\n"), ft_atoi("-2147483323423423"));
-}
- */
+	printf(("%d\n"), ft_atoi("-2147483"));
+	printf(("test8: "));
+	printf(("-2147483648\n"));
+	printf(("function call: "));
+	printf(("%d\n"), ft_atoi("-2147483648"));
+} */

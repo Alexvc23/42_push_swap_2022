@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:03:09 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/09 19:22:07 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/14 12:48:11 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ void    ft_lstprint(t_list **header)
     {
         ft_putnbr_fd(*((int*)ptr->content), 1);
         ptr = ptr->next;
+        if (ptr)
+            ft_putchar_fd(' ', 1);
     }
+    ft_putstr_fd("\n", 1);
 }
 /* int main(int args, char *argv[])
 {

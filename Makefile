@@ -20,7 +20,8 @@ OBJS = $(addprefix $(DIR_OBJS)/,$(O_FILES))
 INCS = $(addprefix $(DIR_INCS)/,$(INCLUDES))
 
 C_FILES	:=	push_swap.c issort.c set_up.c r_operations.c\
-s_operations.c rr_operations.c p_operations.c\
+s_operations.c rr_operations.c p_operations.c three_nbrs.c\
+five_nbrs.c\
 
 O_FILES := $(C_FILES:.c=.o)
 LIBFT := $(DIR_LIBFT)/libft.a
@@ -53,7 +54,7 @@ $(DIR_OBJS)/%.o: $(DIR_SRCS)/%.c $(INCS) Makefile | $(DIR_OBJS)
 
 $(DIR_OBJS):
 	$(AT) mkdir -p $@ 
-$(LIBFT): libft/Makefile 
+$(LIBFT): libft/Makefile libft/srcs
 	 $(AT) $(MAKE) -C $(DIR_LIBFT)
 	
 clean:
