@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 16:19:46 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/16 13:40:44 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:46:40 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void ft_rrb(t_list **stack_b, char letter);
 void ft_rrr(t_list **stack_a, t_list **stack_b);
 void    ft_pa(t_list **stack_b, t_list **stack_a, char letter);
 void    ft_pb(t_list **stack_a, t_list **stack_b, char letter);
+void ft_two_nbrs(t_list **stack_a);
 void ft_three_nbrs(t_list **stack_a);
 void    ft_five_nbrs(t_list **a, t_list **b);
 int ft_max(t_list **stack);

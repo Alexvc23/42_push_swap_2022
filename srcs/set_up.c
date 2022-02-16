@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 09:53:59 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/16 14:06:25 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:47:32 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,12 @@ int set_up(int args, int *num, t_list **stack_a , t_list **stack_b)
         ft_lstadd_back(stack_a, ft_lstnew(&num[i++]));
     if (ft_issort(args, num))
         return (0);
+    if (args == 3)
+        ft_two_nbrs(stack_a);
     if (args == 4)
         ft_three_nbrs(stack_a);
-    if (args == 6)
+    if (args > 4 && args <= 6)
         ft_five_nbrs(stack_a, stack_b);
+/*     ft_lstprint(stack_a); */
     return (0);
 }

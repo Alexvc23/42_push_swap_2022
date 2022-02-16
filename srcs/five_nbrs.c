@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 11:27:04 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/16 14:05:28 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:35:23 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,28 @@ void    ft_set_appart(t_list **a, t_list **b)
 
 void    ft_five_nbrs(t_list **a, t_list **b)
 {
-    t_list *temp;
+    t_list  *temp_b;
+    t_list  *temp_a;
+    int     len_b;
+    int     i;
 
     ft_set_appart(a, b);
-    temp = *b;
-    if (*((int *)temp->content) < *((int *)temp->next->content))
-        ft_sb(b, 'b');
+    temp_b = *b;
+    i = 0;
+    if (temp_b->next)
+    {
+        if (*((int *)temp_b->content) < *((int *)temp_b->next->content))
+            ft_sb(b, 'b');
+    }
     ft_three_nbrs(a);
-    ft_pa(b, a, 'a');
-    ft_pa(b, a, 'a');
-    ft_ra(a, 'a');;
-    ft_ra(a, 'a');;
+    len_b = ft_lstsize(*b);
+    while (i++ < len_b)
+        ft_pa(b, a, 'a');
+    temp_a = *a;
+    while (*((int *)temp_a->content) == ft_max(a) || *((int *)temp_a->content) ==\
+    ft_before_max(a, ft_max(a)))
+    {
+        ft_ra(a, 'a');
+        temp_a = *a;
+    }
 }

@@ -6,11 +6,26 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 11:22:24 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/15 15:30:25 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/16 16:46:10 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
+
+void ft_two_nbrs(t_list **stack_a)
+{
+    t_list  *temp;
+    int     one;
+    int     two;
+
+    temp = *stack_a;
+    one = *((int*)temp->content);
+    two = *((int*)temp->next->content);
+
+    if (one > two)
+        ft_sa(stack_a , 'a');
+
+}
 
 void ft_three_nbrs(t_list **stack_a)
 {
