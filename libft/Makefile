@@ -55,7 +55,8 @@ ft_strrchr.c \
 ft_strtrim.c \
 ft_substr.c \
 ft_tolower.c \
-ft_toupper.c
+ft_toupper.c \
+ft_put_nbr_base.c
 
 C_BONUS = \
 	  ft_lstadd_front.c	\

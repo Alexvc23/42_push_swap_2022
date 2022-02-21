@@ -6,23 +6,12 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/14 21:50:13 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/21 18:51:27 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* print int array */
-int ft_print_int(int args, int *num)
-{
-    int i;
-
-    i = 0;
-    while (i <= (args - 2))
-        printf("%d", num[i++]);
-    printf("\n");
-    return (0);
-}
 /* free int array*/
 void ft_free(int *a)
 {
@@ -76,6 +65,12 @@ int ft_check_numsize(int args, char *argv[], int *num)
         num[iter] = ft_atoi(argv[i]);
         if (num[iter] == 0)
         {
+            if (argv[i][0] == '-' && (char)(num[iter] + '0') == argv[i][1])
+            {
+                i++;
+                iter++;
+                continue;
+            }
             if ((char)(num[iter] + '0') != argv[i][0])
                 return (0);
         }
@@ -129,5 +124,6 @@ int main(int args, char *argv[])
         set_up(args, num, &stack_a, &stack_b);
     }
     ft_free(num);
+    free(stack_a);
     return (0);
 }

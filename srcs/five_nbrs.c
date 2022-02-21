@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 11:27:04 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/16 16:35:23 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/17 11:19:44 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    ft_set_appart(t_list **a, t_list **b)
         if (index <= (ft_lstsize(*a) / 2))
         {
             while (i++ < index)
-                ft_ra(a, 'a');;
+                ft_ra(a, 'a');
             ft_pb(a, b, 'b');
         }
         else
