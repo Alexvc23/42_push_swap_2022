@@ -6,20 +6,18 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/23 10:38:53 by jvalenci         ###   ########lyon.fr   */
+/*   Updated: 2022/02/23 14:02:50 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* free int array*/
-void	ft_free(int *a)
+/* free new int array free linked list and print error if error*/
+int ft_error(int *num, t_list **a)
 {
-	if (a)
-	{
-		free(a);
-		a = NULL;
-	}
+	free(num);
+	ft_lstclear(a, del);
+	return (write(2, "Error\n", 7));
 }
 
 /* check if arguments provided are only numbers */
@@ -116,14 +114,14 @@ int	main(int args, char *argv[])
 	if (args >= 3)
 	{
 		if (!ft_check_isdigit(args, argv))
-			return (write(2, "Error\n", 7));
+			return (ft_error(num, &stack_a));
 		if (!ft_check_numsize(args, argv, num))
-			return (write(2, "Error\n", 7));
+			return (ft_error(num, &stack_a));
 		if (!ft_check_dup(args, num))
-			return (write(2, "Error\n", 7));
+			return (ft_error(num, &stack_a));
 		set_up(args, num, &stack_a, &stack_b);
 	}
-	ft_free(num);
-	free(stack_a);
+	free(num);
+	ft_lstclear(&stack_a, del);
 	return (0);
 }
