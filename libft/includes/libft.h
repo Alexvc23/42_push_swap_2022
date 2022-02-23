@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 09:56:39 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/21 19:01:05 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/02/23 11:04:45 by jvalenci         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f) (void *), void (*del)(void*));
-void    ft_lstprint(t_list **header);
-void    ft_check_prev(t_list **alst);
-void    ft_putnbr_base(char *base, int nbr);
-void del(void *content);
+void	ft_lstprint(t_list **header);
+void	ft_check_prev(t_list **alst);
+void	ft_putnbr_base(char *base, int nbr);
+void	del(void *content);
 
 #endif
