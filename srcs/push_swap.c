@@ -6,14 +6,14 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 15:41:23 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/03/03 11:18:38 by jvalenci         ###   ########.fr       */
+/*   Updated: 2022/03/03 12:33:43 by jvalenci         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /* free new int array, free linked list and print error if error*/
-int ft_error(int *num, t_list **a)
+int	ft_error(int *num, t_list **a)
 {
 	free(num);
 	ft_lstclear(a, del);
