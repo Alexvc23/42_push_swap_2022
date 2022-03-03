@@ -6,7 +6,7 @@
 /*   By: jvalenci <jvalenci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 21:07:13 by jvalenci          #+#    #+#             */
-/*   Updated: 2022/02/23 10:24:34 by jvalenci         ###   ########lyon.fr   */
+/*   Updated: 2022/03/03 11:16:50 by jvalenci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_setup_index(t_list **a, int *index, int len)
 {
 	int		i;
-	int		j;
 	int		min;
 	int		counter;
 	t_list	*temp;
@@ -25,7 +24,6 @@ void	ft_setup_index(t_list **a, int *index, int len)
 	while (i++ < len)
 	{
 		temp = *a;
-		j = 0;
 		min = ft_min_if_null(a);
 		while (temp)
 		{
@@ -36,7 +34,6 @@ void	ft_setup_index(t_list **a, int *index, int len)
 				counter++;
 			}
 			temp = temp->next;
-			j++;
 		}
 	}
 }
